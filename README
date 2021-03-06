@@ -1,0 +1,49 @@
+POSTOLACHE ALEXANDRU-GABRIEL 321CB
+
+Var globale folosite:
+	space= retine valoarea unui spatiu pt strtok
+	zero = retine val lui 0(null) tot pt strtok
+	root = retine adresa elementului varf
+	data = retine valoarea operatorului sau numarului care se pune in 
+nod
+	finnished = ne spune cand intalnim in iocla_atoi un nr neg
+	isOperator = ne spune cand intalnim un operator
+	j = folosit pt parcurgerea caracterelor unui string
+	i = pt inmultirea cu 10
+
+Functia iocla_atoi:
+	Mai intai am pus in edx stringul si l-am salvat in stiva.
+Dupa calc nr de caractere al stringului. Dupa parcurg fiecare caracter
+pana se termina sirul(cand contorul este egal cu nr de caract din ebx).
+Cand gasim o cifra mergem la labelul aduna. Cand caracterul e "-"
+inseamna ca aveam de a face cu un nr negativ, caz in care ne comportam
+ca si cum ar fi poz si il negam la iesirea din functie. Se aduna
+valoarea reprezentata de caracterul curent si daca nu s-a terminat
+inmultim rez cu 10 ca sa putem aduna noua cifra, care va deveni cea
+a unitatilor.
+
+create_tree:
+	Fct creeaza un arbore. Mai intai salvez registrii pe care ii
+folosesc pe stiva si ii scot la final. Dupa construiesc nodul radacina:
+iau primul element cu strtok si il copiez intr-o zona alocata, Stringul
+copiat il salvez in ebx, dupa aloc memorie pt un nod(12 bytes) si setez
+in primii 4 biti valoarea salvata in ebx. Apoi apelez cele 2 functii
+recursive care se ocupa de setarea copiilor pt subarborele stg si cel
+drept.
+
+recFunction:
+	Functia recursiva care se ocupa pt setarea copiilor din stanga.
+Functia primeste ca parametru adresa nodului parinte. Daca el citit
+incepe cu operator se va merge la labelul markOperator care verifica
+daca este operator si nu numar negativ si in cazul in care
+e operator se marcheaza in var isOperator. Dupa se creeaza noul nod
+ca la create_tree si daca este operator inseamna ca trb sa aiba si
+copii si atunci se aplica cele 2 fct de setare de noduri copii, iar
+daca este numar fct se opreste caci nodurile numere nu au copii.
+Nodul creat in functia asta se pune la adresa parintelui+4.
+
+recFunction2:
+	Functia face acelasi lucru ca cea de mai sus doar ca nodul creat
+in cadrul ei se pune ca fiu de dreapta al nodului parinte, adica
+la adresa parintelui+8.
+
