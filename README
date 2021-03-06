@@ -1,4 +1,7 @@
-POSTOLACHE ALEXANDRU-GABRIEL 321CB
+POSTOLACHE ALEXANDRU-GABRIEL
+
+	T1.in, T1.out, ..., T6.in, T6.out are a few examples of inputs and
+their respective outputs.
 
 Var globale folosite:
 	space= retine valoarea unui spatiu pt strtok
